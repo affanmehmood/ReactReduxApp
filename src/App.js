@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import HomePage from "./components/home/HomePage";
+import AboutPage from "./components/about/AboutPage";
+import PageNotFound from "./components/PageNotFound";
+import { Route, Switch } from "react-router-dom";
+import Header from "./components/common/header";
+import CoursesPage from "./components/courses/CoursesPage";
+import { Container, Jumbotron } from "react-bootstrap";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="container-fluid">
+      <div className="row d-flex justify-content-center">
+        <div
+          className=" 
+          col-8 align-items-center "
         >
-          Learn React
-        </a>
-      </header>
+          <Header />
+          <Jumbotron className=" d-flex align-items-center ">
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/about" component={AboutPage} />
+              <Route path="/courses" component={CoursesPage} />
+              <Route component={PageNotFound}></Route>
+            </Switch>
+          </Jumbotron>
+        </div>
+      </div>
     </div>
   );
 }
