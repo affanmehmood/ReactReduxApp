@@ -5,7 +5,8 @@ import PageNotFound from "./components/PageNotFound";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/common/header";
 import CoursesPage from "./components/courses/CoursesPage";
-import { Container, Jumbotron } from "react-bootstrap";
+import { Jumbotron } from "react-bootstrap";
+import TestComponent from "./TestComp";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           col-8 align-items-center "
         >
           <Header />
+
           <Jumbotron className=" d-flex align-items-center ">
             <Switch>
               <Route exact path="/" component={HomePage} />
@@ -24,6 +26,7 @@ function App() {
               <Route component={PageNotFound}></Route>
             </Switch>
           </Jumbotron>
+          <TestComponent />
         </div>
       </div>
     </div>
